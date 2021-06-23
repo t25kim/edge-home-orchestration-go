@@ -153,3 +153,11 @@ func SetClients(host string, protocol string, timeout int) {
 func TomlMarshal() (b []byte, err error) {
 	return toml.Marshal(tomlInfo)
 }
+
+func GetServerIP(ConfigPath string) (string, int, error) {
+	config, err := toml.LoadFile(ConfigPath)
+	if err != nil {
+		return "", 0, err
+	}
+	return config.Get("Clients.Data.Host").(string), (int)(config.Get("Clients.Data.Port").(int64)), nil
+}
