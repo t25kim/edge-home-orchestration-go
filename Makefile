@@ -16,9 +16,11 @@ GO_MOBILE_LDFLAGS	:= -ldflags '-X main.version=$(VERSION) -X main.commitID=$(GO_
 PKG_NAME	:= edge-orchestration
 
 # Go Application target
-CMD_DIR 	:= $(BASE_DIR)/cmd
+CMD_DIR 	:= cmd
+#CMD_DIR 	:= $(BASE_DIR)/cmd
 CMD_SRC 	:= $(CMD_DIR)/edge-orchestration/main.go
-BIN_DIR 	:= $(BASE_DIR)/bin
+BIN_DIR 	:= bin
+#BIN_DIR 	:= $(BASE_DIR)/bin
 BIN_FILE	:= $(PKG_NAME)
 
 # Go Library for C-archive

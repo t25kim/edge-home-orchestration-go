@@ -199,15 +199,8 @@ function build_docker_container() {
 
     docker rm -f $DOCKER_IMAGE
     docker rmi -f $DOCKER_IMAGE:$CONTAINER_VERSION
-    mkdir -p $BASE_DIR/bin/qemu
     case $GOARCH in
-        386 | amd64)
-            ;;
-        arm)
-            cp /usr/bin/qemu-arm-static $BASE_DIR/bin/qemu
-            ;;
-        arm64)
-            cp /usr/bin/qemu-aarch64-static $BASE_DIR/bin/qemu
+        386 | amd64 | arm | arm64)
             ;;
         *)
             case "$(uname -m)" in
